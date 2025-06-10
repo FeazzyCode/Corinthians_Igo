@@ -1,0 +1,548 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #000;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo_symbol {
+    height: 10px;
+    max-width: auto;
+    font-size: 2rem;
+    color: #fff;
+    background: linear-gradient(45deg, #fff, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 3px rgba(255,255,255,0.3));
+}
+
+.logo_symbol img {
+    position: absolute;
+    width: 30px;
+    height: auto;
+    top: -15px;
+    left: -30px;
+}
+
+.logo h1 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav_menu {
+    display:flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav_link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav_link:hover,
+
+.nav_link.active {
+    background-color: #333;
+}
+
+main {
+    margin-top: 80px;
+    min-height: calc(100vh - 120px);
+}
+
+.page {
+    display: none;
+    padding: 2rem;
+}
+
+.page.active {
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    background: linear-gradient(135deg, #000 0%, #333 100%);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero_subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+.hero_content {
+    max-width: 800px;
+    margin: 2rem auto 0;
+}
+
+.hero_content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.hero_content p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.slider {
+    height: 300px;
+}
+    
+.slider_btn {
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+    
+.slider_btn.prev {
+    left: 10px;
+}
+    
+.slider_btn.next {
+    right: 10px;
+}
+    
+.slide_content {
+    padding: 2rem 1.5rem 1.5rem;
+}
+    
+.slide_content h3 {
+    font-size: 1.4rem;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider_container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.slider {
+    position: relative;
+    height: 400px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide_content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: #fff;
+    padding: 3rem 2rem 2rem;
+    text-align: left;
+}
+
+.slide_content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.slide_content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.slider_btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: background-color 0.3s;
+    z-index: 10;
+}
+
+.slider_btn:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.slider_btn.prev {
+    left: 20px;
+}
+
+.slider_btn.next {
+    right: 20px;
+}
+
+.slider_indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background: #fff;
+}
+
+
+.indicator.active {
+    background: #fff;
+}
+
+.timeline {
+    margin: 2rem 0;
+}
+
+.timeline_item {
+    background: #fff;
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-left: 4px solid #000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.timeline_item h3 {
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+.camisas_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+.camisas_grid img {
+    display:block;
+    width: 100%;
+    height: auto;
+    max-height: 800px;
+    object-fit: cover;
+}
+
+.camisa_card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    
+}
+
+.camisa_card:hover {
+    transform: translateY(-5px);
+}
+
+.camisa_card h3 {
+    color: #000;
+    margin-bottom: 1rem;
+}
+
+.trofeus {
+    margin: 2rem 0;
+}
+
+.trofeu_categoria {
+    background: #fff;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.trofeu_categoria h2 {
+    color: #000;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: 0.5rem;
+}
+
+.trofeu_categoria ul {
+    list-style: none;
+}
+
+.trofeu_categoria li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.fiel_content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.fiel_benefits {
+    margin: 2rem 0;
+}
+
+.fiel_benefits ul {
+    list-style: none;
+}
+
+.fiel_benefits li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.acervo_subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.gallery_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.gallery_item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery_item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.gallery_item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery_item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery_overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: #fff;
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery_item:hover .gallery_overlay {
+    transform: translateY(0);
+}
+
+.gallery_overlay h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.gallery_overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.btn_primary {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn_primary:hover {
+    background-color: #333;
+}
+
+.btn_secundary {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn_secundary:hover {
+    background-color: #333;
+}
+
+.camisa_link {
+    text-align: center;
+    margin: 32px 0;
+}
+
+.store_link {
+    text-align: center;
+    margin: 32px 0;
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .nav_menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero_subtitle {
+        font-size: 1.2rem;
+    }
+
+    .slider {
+        height: 300px;
+    }
+
+    .slider_btn {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .slider_btn.prev {
+        left: 10px;
+    }
+
+    .slider_btn.next {
+        right: 10px;
+    }
+
+    .slide_content {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+
+    .slide_content h3 {
+        font-size: 1.4rem;
+    }
+
+    .camisas_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery_item {
+        height: 200px;
+    }
+
+    .gallery_item img {
+        height: 200px;
+    }
+}
